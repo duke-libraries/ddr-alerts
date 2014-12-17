@@ -27,12 +27,14 @@ Install the ddr-alerts migrations:
     rake ddr_alerts:install:migrations
 
 then
+
     rake db:migrate
+
     rake db:test:prepare
 
 #### View Partial
 
-Ddr-alerts contains a view partial (ddr/alerts/message/_alert_message.html.erb) that displays the alert messages.  This partial depends on
+Ddr::Alerts contains a view partial (ddr/alerts/message/_alert_message.html.erb) that displays the alert messages.  This partial depends on
 the local 'alert_messages' to contain an array of Ddr::Alert::Message which are to be displayed.  Render this partial in the desired
 view / layout of your application, passing in the appropriate value for the 'alert_messages' local.  For example, override Blacklight's
 shared/_flash_messages.html.erb as shown below to include all active alert messages in the 'repository' context above the application's
