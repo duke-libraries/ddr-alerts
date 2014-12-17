@@ -10,7 +10,6 @@ class CreateDdrAlertsMessages < ActiveRecord::Migration
   end
 
   def down
-    # raise ActiveRecord::IrreversibleMigration
-    drop_table "ddr_alerts_messages"
+    raise ActiveRecord::IrreversibleMigration
   end
 end
