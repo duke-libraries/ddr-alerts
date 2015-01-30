@@ -3,17 +3,9 @@ namespace :ddr_alerts do
   desc "Create an alert message"
   task :create => :environment do
     puts "ERROR: Must specify message text.  Ex.: MESSAGE='This is an alert message.'" unless ENV['MESSAGE']
-    puts "ERROR: Must specify at least one context. Ex.: CONTEXT=repository" unless ENV['CONTEXT']
-    if ENV['MESSAGE'] && ENV['CONTEXT']
+    if ENV['MESSAGE']
       active = ENV['ACTIVE'] == 'true' ? true : false
-      contexts = ENV['CONTEXT'].split(';').map(&:strip)
-      contexts.each do |context|
-        raise "Invalid context: #{context}" unless Ddr::Alerts::MessageContext::CONTEXTS.include?(context)
-      end
       msg = Ddr::Alerts::Message.new(message: ENV['MESSAGE'], active: active)
-      contexts.each do |context|
-        msg.contexts << Ddr::Alerts::MessageContext.new(context: context)
-      end
       if msg.save
         puts "Created Alert Message"
         msg.reload
@@ -27,20 +19,7 @@ namespace :ddr_alerts do
   desc "List alert messages"
   task :list => :environment do
     active = ENV['ACTIVE'] == 'true' ? true : false
-    if ENV['CONTEXT']
-      contexts = ENV['CONTEXT'].split(';').map(&:strip)
-      contexts.each do |context|
-        raise "Invalid context: #{context}" unless Ddr::Alerts::MessageContext::CONTEXTS.include?(context)
-      end
-    end
-    active_filter_msgs = active ? Ddr::Alerts::Message.active : Ddr::Alerts::Message.all
-    if contexts.blank? || contexts.to_set == Ddr::Alerts::MessageContext::CONTEXTS
-      msgs = active_filter_msgs
-    else
-      context_filter_msgs = []
-      contexts.each { |context| context_filter_msgs << active_filter_msgs.send(context) }
-      msgs = SortedSet.new(context_filter_msgs.flatten)
-    end
+    msgs = active ? Ddr::Alerts::Message.active : Ddr::Alerts::Message.all
     msgs.each { |msg| puts msg }
   end
 
