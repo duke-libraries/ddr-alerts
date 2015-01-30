@@ -8,7 +8,6 @@ module Ddr
     extend ActiveSupport::Autoload
 
     autoload :Message
-    autoload :MessageContext
 
     def self.table_name_prefix
       'ddr_alerts_'

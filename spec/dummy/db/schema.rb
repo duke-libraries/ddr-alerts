@@ -11,16 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141215161516) do
-
-  create_table "ddr_alerts_message_contexts", force: true do |t|
-    t.integer  "message_id"
-    t.string   "context"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "ddr_alerts_message_contexts", ["message_id"], name: "index_ddr_alerts_message_contexts_on_message_id"
+ActiveRecord::Schema.define(version: 20150130204030) do
 
   create_table "ddr_alerts_messages", force: true do |t|
     t.text     "message"
