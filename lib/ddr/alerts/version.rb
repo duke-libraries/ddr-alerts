@@ -1,5 +1,5 @@
 module Ddr
   module Alerts
-    VERSION = "0.3.0.post"
+    VERSION = "1.0.0"
   end
 end
