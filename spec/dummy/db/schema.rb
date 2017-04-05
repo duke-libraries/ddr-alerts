@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150130204030) do
 
-  create_table "ddr_alerts_messages", force: true do |t|
+  create_table "ddr_alerts_messages", force: :cascade do |t|
     t.text     "message"
     t.boolean  "active",     default: false
     t.datetime "created_at"
