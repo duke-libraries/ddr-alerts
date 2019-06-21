@@ -1,6 +1,6 @@
 module Ddr
   module Alerts
-    class Message < ActiveRecord::Base
+    class Message < ApplicationRecord
 
       scope :active, -> { where(active: true) }
 
