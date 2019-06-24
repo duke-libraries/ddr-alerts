@@ -18,12 +18,13 @@ Gem::Specification.new do |s|
   s.test_files    = s.files.grep(%r{^(test|spec|features)/})
   s.require_paths = ["lib"]
 
-  s.add_dependency "rails", "~> 4.2"
+  s.add_dependency "rails", "~> 5.2.2"
 
   s.add_development_dependency "bundler", "~> 1.7"
   s.add_development_dependency "rake", "~> 10.0"
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "rspec-rails", "~> 3.1"
-  s.add_development_dependency "factory_girl_rails", "~> 4.4"
+  s.add_development_dependency "factory_bot_rails", "~> 4.8"
   s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "listen"
 end

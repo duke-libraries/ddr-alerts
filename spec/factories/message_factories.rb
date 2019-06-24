@@ -1,13 +1,13 @@
-FactoryGirl.define do
+FactoryBot.define do
 
   factory :message, class: Ddr::Alerts::Message do
-    
+
     trait :active do
-      active true
+      active { true }
     end
 
     trait :inactive do
-      active false
+      active { false }
     end
 
   end

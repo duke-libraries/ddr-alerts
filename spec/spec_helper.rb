@@ -5,7 +5,7 @@ require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 require "ddr-alerts"
 require "rails"
 require "rspec/rails"
-require "factory_girl_rails"
+require "factory_bot_rails"
 require "database_cleaner"
 
 DatabaseCleaner.strategy = :truncation

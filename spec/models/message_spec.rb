@@ -7,8 +7,8 @@ module Ddr
 
       context "scopes" do
         context "active" do
-          let(:active_msg) { FactoryGirl.create(:message, :active) }
-          let(:inactive_msg) { FactoryGirl.create(:message, :inactive) }
+          let(:active_msg) { FactoryBot.create(:message, :active) }
+          let(:inactive_msg) { FactoryBot.create(:message, :inactive) }
           it "should return the correct entries" do
             expect(Message.active).to include(active_msg)
             expect(Message.active).to_not include(inactive_msg)
