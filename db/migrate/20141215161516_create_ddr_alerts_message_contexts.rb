@@ -1,4 +1,4 @@
-class CreateDdrAlertsMessageContexts < ActiveRecord::Migration
+class CreateDdrAlertsMessageContexts < ActiveRecord::Migration[4.2]
   def up
     unless table_exists?("ddr_alerts_message_contexts")
       create_table "ddr_alerts_message_contexts" do |t|

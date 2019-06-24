@@ -1,4 +1,4 @@
-class DropMessageContextsTable < ActiveRecord::Migration
+class DropMessageContextsTable < ActiveRecord::Migration[4.2]
 
   def up
     if table_exists?("ddr_alerts_message_contexts")
